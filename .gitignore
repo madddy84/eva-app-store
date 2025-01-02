@@ -1,1 +1,4 @@
 app-store/node_modules
+app-store/public
+app-store/build
+*.pem
