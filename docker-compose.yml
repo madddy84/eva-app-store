@@ -52,13 +52,13 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  mongo:
-    image: mongo:latest
-    container_name: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
+  # mongo:
+  #   image: mongo:latest
+  #   container_name: mongo
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongo_data:/data/db
 
   alembic:
     image: python:3.10
@@ -73,18 +73,18 @@ services:
     depends_on:
       - db
 
-  mongo_migrate:
-    image: python:3.10
-    container_name: mongo_migrate
-    working_dir: /app
-    volumes:
-      - ./app-store-api:/app
-    environment:
-      - PYTHONPATH=/app
-      - MONGO_URL=mongodb://mongo:27017/app-store
-    command: sh -c "echo 'Installing requirements...' && pip install -r requirements.txt && echo 'Running migrations...' && pymongo-migrate migrate -c pymongo_migrate_config.py && echo 'Migrations completed.'"
-    depends_on:
-      - mongo
+  # mongo_migrate:
+  #   image: python:3.10
+  #   container_name: mongo_migrate
+  #   working_dir: /app
+  #   volumes:
+  #     - ./app-store-api:/app
+  #   environment:
+  #     - PYTHONPATH=/app
+  #     - MONGO_URL=mongodb://mongo:27017/app-store
+  #   command: sh -c "echo 'Installing requirements...' && pip install -r requirements.txt && echo 'Running migrations...' && pymongo-migrate migrate -c pymongo_migrate_config.py && echo 'Migrations completed.'"
+  #   depends_on:
+  #     - mongo
 
 volumes:
   postgres_data:

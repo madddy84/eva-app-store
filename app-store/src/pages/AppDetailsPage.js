@@ -25,7 +25,7 @@ const AppDetails = (props) => {
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium"> ← Back to Apps</Link>
-      <div className="bg-white rounded-xl shadow-lg p-6">
+      <div className="bg-white rounded-xl shadow-lg p-6 mt-6">
         <div className="flex items-start space-x-6">
           <img
             src={app.icon}
