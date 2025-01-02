@@ -1,0 +1,14 @@
+FastAPI
+uvicorn
+sqlalchemy
+asyncpg
+pydantic
+passlib[bcrypt]
+python-jose
+alembic
+databases
+email-validator
+pydantic-settings
+psycopg2
+motor
+pymongo-migrate

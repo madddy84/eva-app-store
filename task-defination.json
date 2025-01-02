@@ -1,0 +1,39 @@
+{
+    "family": "eva-app-task",
+    "networkMode": "awsvpc",
+    "executionRoleArn": "arn:aws:iam::<account-id>:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+      {
+        "name": "react-app",
+        "image": "515966494033.dkr.ecr.us-east-1.amazonaws.com/eva-app-store-react:latest",
+        "memory": 512,
+        "cpu": 256,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 3000,
+            "hostPort": 3000,
+            "protocol": "tcp"
+          }
+        ]
+      },
+      {
+        "name": "api-backend",
+        "image": "515966494033.dkr.ecr.us-east-1.amazonaws.com/eva-app-store-api:latest",
+        "memory": 512,
+        "cpu": 256,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 8000,
+            "hostPort": 8000,
+            "protocol": "tcp"
+          }
+        ]
+      }
+    ],
+    "requiresCompatibilities": ["FARGATE"],
+    "cpu": "512",
+    "memory": "1024"
+  }
+  
